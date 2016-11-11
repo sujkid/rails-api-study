@@ -31,7 +31,10 @@ In your own words, define what the responsibilities of the model layer are in
 Rails.
 
 ```md
-<!-- your answer here -->
+Models are Ruby classes. They communicate with the database, store and validate
+data. Models contain the data for the application, the state of the application
+and all the business logic. It notifies the View of the state changes. In short,
+Model is the data structure that your program uses.
 ```
 
 ## Define Controller Responsiblities
@@ -40,7 +43,14 @@ In your own words, define what the responsibilities of the controller layer are
 in Rails.
 
 ```md
-<!-- your answer here -->
+The controller layer in Rails receives an HTTP request and translates it into
+a command the application can understand. It acts as a translator between the
+language of HTTP and the language of your application, or model layer.
+The controller also translates the results of your application(the model layer)
+to the language of HTTP.
+The second responsibility of a controller is authorization. Based on the
+incoming HTTP request, it decides whether to pass the action on to the model
+layer or deny the request.
 ```
 
 ## Define Router Responsiblities
@@ -48,7 +58,11 @@ in Rails.
 In your own words, define what the router does in Rails.
 
 ```md
-<!-- your answer here -->
+The Rails router recognizes URLs and dispatches them to a controller's action.
+It also generates paths and URLs.
+When an HTTP request arrives from the user's browser, it needs to know which
+controller action should be run. It looks at the HTTP verb and the URL that it
+being requested and matches it with the appropriate controller action to run.
 ```
 
 ## The Request-Response Cycle in Rails
@@ -57,5 +71,12 @@ Starting with a client making a GET request to a particular URL, describe how
 the parts of Rails interact to produce and send a response.
 
 ```md
-<!-- your answer here -->
+1. A user opens his browser, types in a URL, and presses Enter.
+2. When the user presses Enter, the browser sends a GET request for that URL.
+3. The GET request hits the Rails router. The router maps the URL to the
+   correct controller action to handle the request.
+4. The action receives the GET request and passes it on to the view.
+5. The view renders the page as HTML.
+6. The controller sends the HTML back to the browser.
+   The page loads and the user sees the page with the form.
 ```
